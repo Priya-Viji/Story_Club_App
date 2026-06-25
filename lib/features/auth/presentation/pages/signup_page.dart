@@ -71,18 +71,18 @@ class _SignUpPageState extends State<SignUpPage> {
   }) {
     return InputDecoration(
       labelText: label,
-      labelStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
-      prefixIcon: Icon(icon, color: Colors.white.withOpacity(0.7)),
+      labelStyle: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
+      prefixIcon: Icon(icon, color: Colors.white.withValues(alpha: 0.7)),
       suffixIcon: suffixIcon,
       filled: true,
-      fillColor: Colors.white.withOpacity(0.08),
+      fillColor: Colors.white.withValues(alpha: 0.08),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide.none,
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.12)),
+        borderSide: BorderSide(color: Colors.white.withValues(alpha:0.12)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
@@ -127,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
               width: 180,
               height: 180,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.12),
+                color: Colors.white.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
             ),

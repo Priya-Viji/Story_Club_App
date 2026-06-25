@@ -5,6 +5,7 @@ import 'package:story_club/app/app_router.dart';
 import 'package:story_club/app/di.dart';
 import 'package:story_club/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:story_club/features/auth/presentation/bloc/auth_event.dart';
+import 'package:story_club/features/storyteller/presentation/bloc/story_bloc.dart';
 import 'package:story_club/firebase_options.dart';
 
 void main() async {
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<AuthBloc>(
           create: (_) => sl<AuthBloc>()..add(CheckAuthStatus()),
         ),
+          //  Story BLoC
+        BlocProvider<StoryBloc>(create: (_) => sl<StoryBloc>()),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

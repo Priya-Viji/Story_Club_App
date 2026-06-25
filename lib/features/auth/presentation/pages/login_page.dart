@@ -177,21 +177,21 @@ class _LoginPageState extends State<LoginPage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                         ),
                       ),
                       const SizedBox(height: 30),
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.08),
+                          color: Colors.white.withValues(alpha: 0.08),
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.12),
+                            color: Colors.white.withValues(alpha: 0.12),
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.16),
+                              color: Colors.black.withValues(alpha: 0.16),
                               blurRadius: 30,
                               offset: const Offset(0, 16),
                             ),
@@ -225,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                                     _obscurePassword
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
-                                    color: Colors.white.withOpacity(0.7),
+                                    color: Colors.white.withValues(alpha: 0.7),
                                   ),
                                   onPressed: () => setState(
                                     () => _obscurePassword = !_obscurePassword,
