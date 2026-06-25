@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _logout() async {
     final confirm = await showDialog<bool>(
       context: context,
-      barrierDismissible: true, // ⭐ Fix dialog not showing
+      barrierDismissible: true, // Fix dialog not showing
       builder: (dialogContext) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         title: const Text('Logout'),
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 12),
 
-              // ⭐ Module Cards
+              //  Module Cards
               Expanded(
                 child: Column(
                   children: [

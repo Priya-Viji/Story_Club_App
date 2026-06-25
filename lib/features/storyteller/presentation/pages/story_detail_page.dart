@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:story_club/features/storyteller/presentation/pages/edit_story_page.dart';
 import '../bloc/story_bloc.dart';
 import '../bloc/story_event.dart';
-import 'add_story_page.dart';
 import 'package:story_club/features/storyteller/domain/entities/story_entity.dart';
 
 class StoryDetailPage extends StatefulWidget {
@@ -70,27 +70,26 @@ class _StoryDetailPageState extends State<StoryDetailPage> {
       backgroundColor: const Color(0xfff2f3f7),
 
       appBar: AppBar(
-        title: Text(story.title),
+        title: Text(story.title, style: const TextStyle(color: Colors.white)),
         backgroundColor: Colors.deepPurple,
         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit),
+            icon: const Icon(Icons.edit, color: Colors.white),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => AddStoryPage(genre: story.genre),
+                  builder: (_) => EditStoryPage(story: story),
                 ),
               );
             },
           ),
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete, color: Colors.white),
             onPressed: () {
-              context.read<StoryBloc>().add(DeleteStoryEvent(story.id));
-              Navigator.pop(context);
-            },
+              _showDeleteBottomSheet(context, story.id);            },
           ),
         ],
       ),
@@ -227,4 +226,82 @@ class _StoryDetailPageState extends State<StoryDetailPage> {
       ),
     );
   }
+}
+void _showDeleteBottomSheet(BuildContext context, String id) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.white,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+    ),
+    builder: (context) {
+      return Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 50,
+              height: 5,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            const Text(
+              "Delete Story?",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            const Text(
+              "Are you sure you want to delete this story? This action cannot be undone.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.black87,
+                height: 1.4,
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              onPressed: () {
+                context.read<StoryBloc>().add(DeleteStoryEvent(id));
+                Navigator.pop(context); // close bottom sheet
+                Navigator.pop(context); // go back to list page
+              },
+              child: const Text("Delete Story"),
+            ),
+
+            const SizedBox(height: 12),
+
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel", style: TextStyle(fontSize: 16)),
+            ),
+
+            const SizedBox(height: 10),
+          ],
+        ),
+      );
+    },
+  );
 }

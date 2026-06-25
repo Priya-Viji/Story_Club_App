@@ -333,7 +333,7 @@ class _EditStoryPageState extends State<EditStoryPage> {
       ),
       child: const Text(
         "Update Story",
-        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
   }

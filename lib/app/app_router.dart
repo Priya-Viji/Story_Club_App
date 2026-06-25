@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:story_club/features/auth/presentation/pages/home_page.dart';
-import 'package:story_club/features/auth/presentation/pages/story_writer_page.dart';
 import 'package:story_club/features/storyteller/presentation/pages/story_categories_page.dart';
+import 'package:story_club/features/storywriter/presentation/pages/story_writer_types_page.dart';
 import '../features/auth/presentation/pages/splash_screen.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/signup_page.dart';
@@ -25,7 +25,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const StoryCategoriesPage());
 
       case '/story-writer':
-        return MaterialPageRoute(builder: (_) => const StoryWriterPage());
+        return MaterialPageRoute(builder: (_) => const StoryWriterTypesPage());
 
       default:
         return MaterialPageRoute(
