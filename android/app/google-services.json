@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648016088742",
+    "project_id": "storyclub-4b1ad",
+    "storage_bucket": "storyclub-4b1ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648016088742:android:21509f717160a49e5b6e67",
+        "android_client_info": {
+          "package_name": "com.example.story_club"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMApwhs4R1V5pFudF7JNY_iuZiWtLDrMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
